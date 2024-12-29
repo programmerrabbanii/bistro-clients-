@@ -1,9 +1,14 @@
 import React from 'react';
+import { Outlet } from 'react-router-dom';
+import Header from '../Components/Header';
+import Bannar from '../Components/Bannar';
 
 const MainLayouts = () => {
     return (
         <div>
-            this is main
+            <Header></Header>
+            <Bannar></Bannar>
+           <Outlet></Outlet>
         </div>
     );
 };

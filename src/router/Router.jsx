@@ -19,7 +19,7 @@ const router=createBrowserRouter([
                 element:<Contact></Contact>
             },
             {
-                path:'/dhasboard',
+                path:'/dashboard',
                 element:<Dhasboard></Dhasboard>
             }
 
