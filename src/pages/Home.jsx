@@ -3,6 +3,7 @@ import Feature from "../Components/Feature";
 import Hcategory from "../Components/Hcategory";
 import PopularMenu from "../Components/PopularMenu";
 import Recommen from "../Components/Recommen";
+import Testimonial from "../Components/Testimonial";
 
 const Home = () => {
     return (
@@ -12,6 +13,7 @@ const Home = () => {
           <PopularMenu></PopularMenu>
           <Recommen></Recommen>
           <Feature></Feature>
+          <Testimonial></Testimonial>
           
         </div>
     );
