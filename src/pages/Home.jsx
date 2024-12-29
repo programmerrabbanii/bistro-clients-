@@ -1,8 +1,9 @@
+import Hcategory from "../Components/Hcategory";
+
 const Home = () => {
     return (
         <div>
-            this is home
-            
+          <Hcategory></Hcategory>            
         </div>
     );
 };

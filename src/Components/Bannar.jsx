@@ -11,7 +11,7 @@ import img6 from '../../src/assets/./images/home/06.png'
 const Bannar = () => {
 
     return (
-        <div>
+        <div className="text-center">
              <Carousel>
                 <div>
                     <img src={img1} alt="" />
