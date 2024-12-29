@@ -9,7 +9,7 @@ const BistroIntro = () => {
                 backgroundImage: `url(${intro})`, 
             }}
         >
-            <div className="bg-white p-10 rounded shadow-lg w-[40%] text-center">
+            <div className="bg-white p-10 rounded shadow-lg w-[60%] text-center">
                 <h1 className="text-5xl font-bold uppercase text-gray-800">Welcome to Bistro</h1>
                 <p className="mt-4 text-lg text-gray-600">
                     Experience the finest dining with a touch of elegance.

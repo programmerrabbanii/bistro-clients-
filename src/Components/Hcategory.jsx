@@ -6,12 +6,18 @@ import slider1 from '../assets/images/home/slide1.jpg'
 import slider2 from '../assets/images/home/slide2.jpg'
 import slider3 from '../assets/images/home/slide3.jpg'
 import slider4 from '../assets/images/home/slide4.jpg'
+import SectionTitle from './SectionTitle';
 
 
 
 const Hcategory = () => {
     return (
         <div className='w-11/12 mx-auto'>
+           <SectionTitle 
+           subHeading={'From 11:00am to 10:00pm'}
+           heading={'ORDER ONLINE'}
+           
+           ></SectionTitle>
             <Swiper
         slidesPerView={4}
         spaceBetween={30}
