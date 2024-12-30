@@ -33,6 +33,16 @@ const Header = () => {
       >
         Dashboard
       </NavLink>
+      <NavLink
+        to="/menu"
+        className={({ isActive }) =>
+          isActive
+            ? "text-lg mr-2 text-yellow-400"
+            : "text-lg mr-2 text-white"
+        }
+      >
+        Our Menu
+      </NavLink>
     </>
   );
 

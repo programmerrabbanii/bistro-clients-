@@ -3,6 +3,7 @@ import MainLayouts from "../layouts/MainLayouts";
 import Home from "../pages/Home";
 import Contact from "../pages/Contact";
 import Dhasboard from "../pages/Dhasboard";
+import OurMenu from "../pages/OurMenu";
 
 const router=createBrowserRouter([
     {
@@ -21,6 +22,10 @@ const router=createBrowserRouter([
             {
                 path:'/dashboard',
                 element:<Dhasboard></Dhasboard>
+            },
+            {
+                path:'/menu',
+                element:<OurMenu></OurMenu>
             }
 
         ]
