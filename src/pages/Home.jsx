@@ -6,10 +6,11 @@ import Recommen from "../Components/Recommen";
 import Testimonial from "../Components/Testimonial";
 import { Helmet} from 'react-helmet-async';
 import Bannar from "../Components/Bannar"
+import PhoneInfo from "../Components/PhoneInfo";
 
 
 
-const Home = () => {
+const Home = () => { 
     return (
         
         <div>
@@ -22,6 +23,7 @@ const Home = () => {
           <Hcategory></Hcategory>    
           <BistroIntro></BistroIntro>   
           <PopularMenu></PopularMenu>
+          <PhoneInfo></PhoneInfo>
           <Recommen></Recommen>
           <Feature></Feature>
           <Testimonial></Testimonial>
