@@ -1,6 +1,6 @@
 import React from "react";
 
-const Cover = ({img,title,subtile}) => {
+const Cover = ({img,title,subHeading}) => {
   return (
     <div>
       <div
@@ -15,7 +15,7 @@ const Cover = ({img,title,subtile}) => {
           <div className="max-w-md">
             <h1 className="mb-5 text-5xl font-bold uppercase">{title}</h1>
             <p className="mb-5"> 
-             {subtile}
+             {subHeading}
             </p>
           </div>
         </div>
