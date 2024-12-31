@@ -7,16 +7,20 @@ import { Helmet } from "react-helmet-async";
 import Usemenu from "../hooks/Usemenu";
 import FoodCard from "../Shared.jsx/FoodCard";
 import OraderTabs from "../Shared.jsx/OraderTabs";
+import { useParams } from "react-router-dom";
 
 const Order = () => {
-  const [tabindex, setTabIndex] = useState(0);
+    const categorise=['salad', 'pizza', 'soup','dessert','drinks']
+    const {category}=useParams()
+    const initialIndex=categorise.indexOf(category)
+  const [tabindex, setTabIndex] = useState(initialIndex);
   const [menu]=Usemenu()
   const salads=menu.filter(items=> items.category==='salad')
   const pizzas=menu.filter(items=>items.category==='pizza')
   const soups=menu.filter(items=> items.category==='soup')
   const desserts=menu.filter(items=>items.category==='dessert')
   const drinks=menu.filter(items=>items.category==='drinks')
-  
+  console.log(category);
   return (
     <div>
         <Helmet>

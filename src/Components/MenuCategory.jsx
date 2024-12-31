@@ -13,7 +13,7 @@ const MenuCategory = ({ item, title, img, subHeading }) => {
       </div>
       <div className="text-center py-5">
         <Link
-          to="/order"
+          to={`/order/${title}`}
           className="text-lg font-bold text-gray-800 px-4 py-2 rounded-full border-2 border-yellow-500 bg-yellow-100 hover:bg-yellow-500 hover:text-white transition-all duration-300 shadow-md"
         >
           ORDER YOUR FAVOURITE FOOD

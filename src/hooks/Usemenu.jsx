@@ -5,12 +5,12 @@ const Usemenu = () => {
   const [loading,setLoading]=useState(true)
   console.log(menu);
   useEffect(() => {
-    fetch("menu.json")
+    fetch("http://localhost:5000/menus")
       .then((res) => res.json())
       .then((data) => {
         setMenu(data)
         setLoading(false)
-      });
+      }); 
   }, []);
   return [menu,loading]
 };

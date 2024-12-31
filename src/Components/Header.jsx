@@ -44,7 +44,7 @@ const Header = () => {
         Our Menu
       </NavLink>
       <NavLink
-        to="/order"
+        to="/order/salad"
         className={({ isActive }) =>
           isActive
             ? "text-lg mr-2 text-yellow-400"
