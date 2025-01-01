@@ -1,13 +1,34 @@
+import { loadCaptchaEnginge, LoadCanvasTemplate,  validateCaptcha } from 'react-simple-captcha';
 import { motion } from "framer-motion";
 import loginimg from '../assets/images/others/authentication1-removebg-preview.png';
 import loginBgImg from '../assets/images/others/authentication.png';
+import { useEffect, useRef, useState } from 'react';
 
 const Login = () => {
+    const [disabled,setDisabled]=useState(true)
+    const cattchaRef=useRef(null)
+
+    useEffect(()=>{
+        loadCaptchaEnginge(6); 
+    },[])
+
     const handleLogin=(e)=>{
         e.preventDefault() 
         const email=e.target.email.value;
         const password=e.target.password.value;
         console.log(email,password);
+
+    }
+    const handlerCaptcha=()=>{
+        const capTcha_value=cattchaRef.current.value;
+        if(validateCaptcha(capTcha_value)){
+            setDisabled(false);
+
+        }
+        else{
+            setDisabled(true)
+
+        }
 
     }
   return (
@@ -77,13 +98,34 @@ const Login = () => {
                   </a>
                 </label>
               </motion.div>
+
               <motion.div
-                className="form-control mt-6"
+                className="form-control"
+                initial={{ x: -50, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+              >
+                <label className="label">
+                <LoadCanvasTemplate />
+                </label>
+                <input
+                  ref={cattchaRef}
+                  name="chapcha"
+                  type="text"
+                  placeholder="Enter your chapta"
+                  className="input input-bordered"
+                  required
+                />
+                 <button onClick={handlerCaptcha} className="btn bg-black text-white btn-sm mt-2 ">VALIDATE</button>
+
+              </motion.div>
+              <motion.div
+                className="form-control mt-6" 
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.6 }}
               >
-                <input className="bg-[#D1A054] w-full rounded-md py-2 text-white cursor-pointer " type="submit" value="Login" />
+                <input  disabled={disabled} className="bg-[#D1A054] w-full rounded-md py-2 text-white cursor-pointer disabled:cursor-not-allowed " type="submit" value="Login" />
               </motion.div>
             </form>
           </motion.div>
