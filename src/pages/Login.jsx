@@ -1,0 +1,110 @@
+import { motion } from "framer-motion";
+import loginimg from '../assets/images/others/authentication1-removebg-preview.png';
+import loginBgImg from '../assets/images/others/authentication.png';
+
+const Login = () => {
+    const handleLogin=(e)=>{
+        e.preventDefault() 
+        const email=e.target.email.value;
+        const password=e.target.password.value;
+        console.log(email,password);
+
+    }
+  return (
+    <div
+      style={{
+        backgroundImage: `url(${loginBgImg})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        minHeight: '100vh',
+        backgroundRepeat: 'no-repeat',
+      }}
+    >
+      <div className="hero min-h-screen flex items-center justify-center">
+        <motion.div
+          className="hero-content flex-col lg:flex-row-reverse w-full max-w-5xl rounded-lg p-6"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          {/* Right Section: Login Form */}
+          <motion.div
+            className="card w-full lg:w-1/2 p-5 rounded-lg"
+            initial={{ x: -100, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 1 }}
+          >
+            <form onSubmit={handleLogin} className="card-body">
+              <h2 className="text-2xl font-bold text-center mb-4 text-gray-700">
+                Welcome Back!
+              </h2>
+              <motion.div
+                className="form-control"
+                initial={{ x: -50, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+              >
+                <label className="label">
+                  <span className="label-text font-semibold text-gray-600">Email</span>
+                </label>
+                <input
+                  name="email"
+                  type="email"
+                  placeholder="Enter your email"
+                  className="input input-bordered"
+                  required
+                />
+              </motion.div>
+              <motion.div
+                className="form-control"
+                initial={{ x: -50, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+              >
+                <label className="label">
+                  <span className="label-text font-semibold text-gray-600">Password</span>
+                </label>
+                <input
+                  name="password"
+                  type="password"
+                  placeholder="Enter your password"
+                  className="input input-bordered"
+                  required
+                />
+                <label className="label">
+                  <a href="#" className="label-text-alt link link-hover text-primary">
+                    Forgot password?
+                  </a>
+                </label>
+              </motion.div>
+              <motion.div
+                className="form-control mt-6"
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.6 }}
+              >
+                <input className="bg-[#D1A054] w-full rounded-md py-2 text-white cursor-pointer " type="submit" value="Login" />
+              </motion.div>
+            </form>
+          </motion.div>
+
+          {/* Left Section: Illustration */}
+          <motion.div
+            className="text-center lg:text-left w-full lg:w-1/2 flex items-center justify-center"
+            initial={{ scale: 0.5, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 1 }}
+          >
+            <img
+              src={loginimg}
+              alt="Login Illustration"
+              className="rounded-lg max-w-full"
+            />
+          </motion.div>
+        </motion.div>
+      </div>
+    </div>
+  );
+};
+
+export default Login;

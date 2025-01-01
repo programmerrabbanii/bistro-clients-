@@ -53,6 +53,17 @@ const Header = () => {
       >
         Our Order
       </NavLink>
+
+      <NavLink
+        to="/login"
+        className={({ isActive }) =>
+          isActive
+            ? "text-lg mr-2 text-yellow-400"
+            : "text-lg mr-2 text-white"
+        }
+      >
+        Login
+      </NavLink>
     </>
   );
 
