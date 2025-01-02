@@ -77,6 +77,108 @@ const Contact = () => {
           </div>
         </div>
       </div>
+      {/* contact fild here */}
+      <div>
+        <SectionTitle
+          subHeading={"Send Us a Message"}
+          heading={"CONTACT FORM"}
+        ></SectionTitle>
+
+        <div>
+          <div className="min-h-screen flex items-center justify-center">
+            <div className="bg-white shadow-md rounded-lg p-8 w-11/12 md:w-2/3 lg:w-1/2">
+              <h2 className="text-2xl font-bold text-gray-700 text-center mb-6">
+                Contact Us
+              </h2> 
+              <form>
+                {/* Name and Email */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                  <div>
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-medium text-gray-700"
+                    >
+                      Name*
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      placeholder="Enter your name"
+                      className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-[#D1A054] focus:border-[#D1A054]"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium text-gray-700"
+                    >
+                      Email*
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      placeholder="Enter your email"
+                      className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-[#D1A054] focus:border-[#D1A054]"
+                    />
+                  </div>
+                </div>
+
+                {/* Phone */}
+                <div className="mb-6">
+                  <label
+                    htmlFor="phone"
+                    className="block text-sm font-medium text-gray-700"
+                  >
+                    Phone*
+                  </label>
+                  <input
+                    type="text"
+                    id="phone"
+                    placeholder="Enter your phone number"
+                    className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-[#D1A054] focus:border-[#D1A054]"
+                  />
+                </div>
+
+                {/* Message */}
+                <div className="mb-6">
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-medium text-gray-700"
+                  >
+                    Message*
+                  </label>
+                  <textarea
+                    id="message"
+                    rows="4"
+                    placeholder="Write your message here"
+                    className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-[#D1A054] focus:border-[#D1A054]"
+                  ></textarea>
+                </div>
+
+                {/* reCAPTCHA */}
+                <div className="mb-6">
+                  <div className="bg-gray-100 border border-gray-300 rounded-md p-4 text-center">
+                    <p className="text-gray-500">I'm not a robot</p>
+                    <p className="text-xs text-gray-400">
+                      reCAPTCHA Privacy - Terms
+                    </p>
+                  </div>
+                </div>
+
+                {/* Submit Button */}
+                <div className="text-center">
+                  <button
+                    type="submit"
+                    className="w-full bg-[#D1A054] text-white font-bold py-2 px-4 rounded-md hover:bg-[#b98444] transition duration-300"
+                  >
+                    Submit
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
