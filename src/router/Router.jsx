@@ -6,6 +6,7 @@ import Dhasboard from "../pages/Dhasboard";
 import OurMenu from "../pages/OurMenu";
 import Order from "../pages/Order";
 import Login from "../pages/Login";
+import SignUp from "../pages/SignUp";
 
 const router=createBrowserRouter([
     {
@@ -36,6 +37,10 @@ const router=createBrowserRouter([
             {
                 path:'login',
                 element:<Login></Login>
+            },
+            {
+                path:'signup',
+                element:<SignUp></SignUp>
             }
 
         ]

@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import loginimg from '../assets/images/others/authentication1-removebg-preview.png';
 import loginBgImg from '../assets/images/others/authentication.png';
 import { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { FcGoogle } from 'react-icons/fc';
 
 const Login = () => {
     const [disabled,setDisabled]=useState(true)
@@ -127,6 +129,9 @@ const Login = () => {
               >
                 <input  disabled={disabled} className="bg-[#D1A054] w-full rounded-md py-2 text-white cursor-pointer disabled:cursor-not-allowed " type="submit" value="Login" />
               </motion.div>
+              <p className='text-center text-[#D1A054]'>New here? Create a New <Link className='font-semibold' to="/signup">SignUp Account</Link></p>
+              <p className='text-center'>Or sign in with</p>
+              <p ><FcGoogle  className='text-center text-3xl mx-auto'/></p>
             </form>
           </motion.div>
 
@@ -145,6 +150,7 @@ const Login = () => {
           </motion.div>
         </motion.div>
       </div>
+      
     </div>
   );
 };
