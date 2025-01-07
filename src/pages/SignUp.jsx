@@ -1,24 +1,47 @@
 import { motion } from "framer-motion";
 import singupImg from "../assets/images/others/authentication1-removebg-preview.png";
 import singupBG from "../assets/images/others/authentication.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { useForm } from "react-hook-form";
 import { Helmet } from "react-helmet-async";
 import { useContext } from "react";
 import { AuthContext } from "../auth/AuthProvider";
+import Swal from "sweetalert2";
 
 
 const SignUp = () => {
-  const {user,createUser}=useContext(AuthContext)
+  const {user,createUser,googleLogin}=useContext(AuthContext)
   const {register,handleSubmit,watch,formState: { errors },} = useForm();
+  const navigate=useNavigate()
   const onSubmit = (data) => {
     createUser(data.email,data.password)
     .then(result=>{
-      const loginUser=result.user
-      console.log(loginUser);
+       navigate('/login')
     })
     
+  }
+  const googleLoginUser=()=>{
+    googleLogin()
+    .then(()=>{
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Google login successful!",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      navigate("/")
+    })
+    .catch((error)=>{
+      Swal.fire({
+        position: "top-end",
+        icon: "error",
+        title: error.message || "Google login failed!",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    })
   }
   console.log(watch("example")) 
 
@@ -111,7 +134,7 @@ const SignUp = () => {
                   <span className="label-text">Password</span>
                 </label>
                 <input
-                  {...register("password",{ required: true, minLength:6, maxLength: 6 })}
+                  {...register("password",{ required: true, minLength:6, maxLength: 20 })}
                   name="password"
                   type="password"
                   placeholder="Enter your password"
@@ -153,7 +176,8 @@ const SignUp = () => {
               </motion.p>
 
               <motion.p
-                className="text-center text-3xl mx-auto"
+              onClick={googleLoginUser}
+                className="text-center text-3xl mx-auto cursor-pointer"
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ delay: 1.4, duration: 0.6 }}

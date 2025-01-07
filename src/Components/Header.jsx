@@ -120,13 +120,13 @@ const Header = () => {
                   src={user.photoURL}
                   alt="User Avatar"
                   className="w-8 h-8 rounded-full border"
-                />
-                <span className="font-medium text-gray-700">{user.displayName}</span>
+                /> 
+                <span className="font-medium text-white">{user.displayName}</span>
               </div>
               {/* Logout Button */}
               <button
                 onClick={logOutUser}
-                className="btn btn-sm btn-outline btn-primary normal-case"
+                className="btn btn-sm btn-outline text-white mx-1 normal-case"
               >
                 Logout
               </button>
