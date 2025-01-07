@@ -2,14 +2,17 @@ import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../auth/AuthProvider";
 import { FiShoppingCart } from "react-icons/fi";
+import UseCart from "../hooks/UseCart";
 
 const Header = () => {
+  const [cart]=UseCart()
   const { user, logout } = useContext(AuthContext);
   const logOutUser = () => {
     logout()
       .then(() => {})
       .catch((error) => console.log(error));
   };
+
   const link = (
     <>
       <NavLink
@@ -66,7 +69,7 @@ const Header = () => {
         <button className="btn text-white bg-black">
         <FiShoppingCart />
 
-          <div className="badge badge-secondary">+0</div>
+          <div className="badge badge-secondary">+{cart.length}</div>
         </button>
         
       </NavLink>

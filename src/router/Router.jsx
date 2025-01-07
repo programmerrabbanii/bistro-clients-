@@ -7,6 +7,7 @@ import OurMenu from "../pages/OurMenu";
 import Order from "../pages/Order";
 import Login from "../pages/Login";
 import SignUp from "../pages/SignUp";
+import Private from "./Private";
 
 const router=createBrowserRouter([
     {
@@ -24,7 +25,7 @@ const router=createBrowserRouter([
             },
             {
                 path:'/dashboard',
-                element:<Dhasboard></Dhasboard>
+                element:<Private><Dhasboard></Dhasboard></Private>
             },
             {
                 path:'/menu',

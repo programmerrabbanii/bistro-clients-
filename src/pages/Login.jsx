@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import loginimg from "../assets/images/others/authentication1-removebg-preview.png";
 import loginBgImg from "../assets/images/others/authentication.png";
 import { useContext, useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { Helmet } from "react-helmet-async";
 import { AuthContext } from "../auth/AuthProvider";
@@ -17,6 +17,8 @@ const Login = () => {
   const { signInUser, googleLogin } = useContext(AuthContext);
   const [disabled, setDisabled] = useState(true);
   const navigate = useNavigate();
+  const location=useLocation()
+  const from=location.state?.from?.pathname||"/"
 
   // Load captcha engine on component mount
   useEffect(() => {
@@ -42,7 +44,7 @@ const Login = () => {
           showConfirmButton: false,
           timer: 1500,
         });
-        navigate("/"); // Redirect to homepage
+        navigate(from,{replace:true}); // Redirect to homepage
       })
       .catch((error) => {
         Swal.fire({
