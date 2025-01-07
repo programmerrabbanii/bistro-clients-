@@ -3,8 +3,25 @@ import singupImg from "../assets/images/others/authentication1-removebg-preview.
 import singupBG from "../assets/images/others/authentication.png";
 import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
+import { useForm } from "react-hook-form";
+import { Helmet } from "react-helmet-async";
+import { useContext } from "react";
+import { AuthContext } from "../auth/AuthProvider";
+
 
 const SignUp = () => {
+  const {user,createUser}=useContext(AuthContext)
+  const {register,handleSubmit,watch,formState: { errors },} = useForm();
+  const onSubmit = (data) => {
+    createUser(data.email,data.password)
+    .then(result=>{
+      const loginUser=result.user
+      console.log(loginUser);
+    })
+    
+  }
+  console.log(watch("example")) 
+
   return (
     <div
       style={{
@@ -15,6 +32,12 @@ const SignUp = () => {
         backgroundRepeat: "no-repeat",
       }}
     >
+      <Helmet>
+        <title>
+        Bistro Restaurant || SignUp
+        
+        </title>
+      </Helmet>
       <div className="hero min-h-screen">
         <div className="hero-content flex-col lg:flex-row-reverse">
           {/* Right Side Image Section */}
@@ -34,7 +57,7 @@ const SignUp = () => {
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <form className="card-body">
+            <form onSubmit={handleSubmit(onSubmit)} className="card-body">
                 <p className="text-center text-3xl ">Sign Up</p>
               <motion.div
                 className="form-control"
@@ -46,12 +69,14 @@ const SignUp = () => {
                   <span className="label-text">Name</span>
                 </label>
                 <input
+                  {...register("name", { required: true })}
                   name="name"
                   type="text"
                   placeholder="Type here"
                   className="input input-bordered"
                   required
                 />
+                {errors.name && <span>Name field is required</span>}
               </motion.div>
 
               <motion.div
@@ -64,12 +89,16 @@ const SignUp = () => {
                   <span className="label-text">Email</span>
                 </label>
                 <input
+                  {...register("email",{required:true})}
                   name="email"
                   type="email"
                   placeholder="Type here"
                   className="input input-bordered"
                   required
                 />
+                {errors.email && <span>Email field is required</span>}
+
+
               </motion.div>
 
               <motion.div
@@ -82,12 +111,15 @@ const SignUp = () => {
                   <span className="label-text">Password</span>
                 </label>
                 <input
+                  {...register("password",{ required: true, minLength:6, maxLength: 6 })}
                   name="password"
                   type="password"
                   placeholder="Enter your password"
                   className="input input-bordered"
-                  required
+                  required 
                 />
+              {errors.password && <span> pleass password must be 6 characters</span>}
+
               </motion.div>
 
               <motion.div

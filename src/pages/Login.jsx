@@ -5,6 +5,7 @@ import loginBgImg from '../assets/images/others/authentication.png';
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
+import { Helmet } from 'react-helmet-async';
 
 const Login = () => {
     const [disabled,setDisabled]=useState(true)
@@ -26,7 +27,7 @@ const Login = () => {
         if(validateCaptcha(capTcha_value)){
             setDisabled(false);
 
-        }
+        } 
         else{
             setDisabled(true)
 
@@ -43,6 +44,12 @@ const Login = () => {
         backgroundRepeat: 'no-repeat',
       }}
     >
+      <Helmet>
+              <title>
+              Bistro Restaurant || Login
+              
+              </title>
+            </Helmet>
       <div className="hero min-h-screen flex items-center justify-center">
         <motion.div
           className="hero-content flex-col lg:flex-row-reverse w-full max-w-5xl rounded-lg p-6"

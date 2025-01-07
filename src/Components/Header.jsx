@@ -1,6 +1,14 @@
-import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../auth/AuthProvider";
 
 const Header = () => {
+  const {user,logout}=useContext(AuthContext)
+  const logOutUser=()=>{
+    logout()
+    .then(()=>{})
+    .catch(error=> console.log(error))
+  }
   const link = (
     <>
       <NavLink
@@ -68,8 +76,8 @@ const Header = () => {
   );
 
   return (
-    <div className="sticky top-0 z-10">
-      <div className="navbar bg-black opacity-50 text-white">
+    <div className="bg-black opacity-50 sticky top-0 z-10">
+      <div className="navbar  w-11/12 mx-auto text-white">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -104,7 +112,37 @@ const Header = () => {
           <ul className="menu menu-horizontal px-1">{link}</ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">loading work...</a>
+        {user ? (
+            <>
+              {/* User Info */}
+              <div className="flex items-center space-x-2">
+                <img
+                  src={user.photoURL}
+                  alt="User Avatar"
+                  className="w-8 h-8 rounded-full border"
+                />
+                <span className="font-medium text-gray-700">{user.displayName}</span>
+              </div>
+              {/* Logout Button */}
+              <button
+                onClick={logOutUser}
+                className="btn btn-sm btn-outline btn-primary normal-case"
+              >
+                Logout
+              </button>
+            </>
+          ) : (
+            <>
+              {/* Login and Register Buttons */}
+              <Link
+                to="/login"
+                className="btn text-white  btn-outline normal-case"
+              >
+                Login
+              </Link>
+             
+            </>
+          )}
         </div>
       </div>
     </div>
