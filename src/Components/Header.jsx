@@ -1,22 +1,21 @@
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../auth/AuthProvider";
+import { FiShoppingCart } from "react-icons/fi";
 
 const Header = () => {
-  const {user,logout}=useContext(AuthContext)
-  const logOutUser=()=>{
+  const { user, logout } = useContext(AuthContext);
+  const logOutUser = () => {
     logout()
-    .then(()=>{})
-    .catch(error=> console.log(error))
-  }
+      .then(() => {})
+      .catch((error) => console.log(error));
+  };
   const link = (
     <>
       <NavLink
         to="/"
         className={({ isActive }) =>
-          isActive
-            ? "text-lg mr-2 text-yellow-400"
-            : "text-lg mr-2 text-white"
+          isActive ? "text-lg mr-2 text-yellow-400" : "text-lg mr-2 text-white"
         }
       >
         Home
@@ -24,9 +23,7 @@ const Header = () => {
       <NavLink
         to="/contact"
         className={({ isActive }) =>
-          isActive
-            ? "text-lg mr-2 text-yellow-400"
-            : "text-lg mr-2 text-white"
+          isActive ? "text-lg mr-2 text-yellow-400" : "text-lg mr-2 text-white"
         }
       >
         Contact
@@ -34,9 +31,7 @@ const Header = () => {
       <NavLink
         to="/dashboard"
         className={({ isActive }) =>
-          isActive
-            ? "text-lg mr-2 text-yellow-400"
-            : "text-lg mr-2 text-white"
+          isActive ? "text-lg mr-2 text-yellow-400" : "text-lg mr-2 text-white"
         }
       >
         Dashboard
@@ -44,9 +39,7 @@ const Header = () => {
       <NavLink
         to="/menu"
         className={({ isActive }) =>
-          isActive
-            ? "text-lg mr-2 text-yellow-400"
-            : "text-lg mr-2 text-white"
+          isActive ? "text-lg mr-2 text-yellow-400" : "text-lg mr-2 text-white"
         }
       >
         Our Menu
@@ -54,9 +47,7 @@ const Header = () => {
       <NavLink
         to="/order/salad"
         className={({ isActive }) =>
-          isActive
-            ? "text-lg mr-2 text-yellow-400"
-            : "text-lg mr-2 text-white"
+          isActive ? "text-lg mr-2 text-yellow-400" : "text-lg mr-2 text-white"
         }
       >
         Our Order
@@ -65,12 +56,19 @@ const Header = () => {
       <NavLink
         to="/login"
         className={({ isActive }) =>
-          isActive
-            ? "text-lg mr-2 text-yellow-400"
-            : "text-lg mr-2 text-white"
+          isActive ? "text-lg mr-2 text-yellow-400" : "text-lg mr-2 text-white"
         }
       >
         Login
+      </NavLink> 
+
+      <NavLink to="/">
+        <button className="btn text-white bg-black">
+        <FiShoppingCart />
+
+          <div className="badge badge-secondary">+0</div>
+        </button>
+        
       </NavLink>
     </>
   );
@@ -112,7 +110,7 @@ const Header = () => {
           <ul className="menu menu-horizontal px-1">{link}</ul>
         </div>
         <div className="navbar-end">
-        {user ? (
+          {user ? (
             <>
               {/* User Info */}
               <div className="flex items-center space-x-2">
@@ -120,8 +118,10 @@ const Header = () => {
                   src={user.photoURL}
                   alt="User Avatar"
                   className="w-8 h-8 rounded-full border"
-                /> 
-                <span className="font-medium text-white">{user.displayName}</span>
+                />
+                <span className="font-medium text-white">
+                  {user.displayName}
+                </span>
               </div>
               {/* Logout Button */}
               <button
@@ -140,13 +140,12 @@ const Header = () => {
               >
                 Login
               </Link>
-             
             </>
           )}
         </div>
       </div>
     </div>
   );
-}; 
+};
 
 export default Header;
