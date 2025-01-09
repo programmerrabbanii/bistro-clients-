@@ -38,7 +38,7 @@ const FoodCard = ({ salad }) => {
             refetch()
           }
          
-        })
+        }) 
       }
       else{
         Swal.fire({

@@ -65,7 +65,7 @@ const Header = () => {
         Login
       </NavLink> 
 
-      <NavLink to="/">
+      <NavLink to="/dashboard/cart">
         <button className="btn text-white bg-black">
         <FiShoppingCart />
 
